@@ -1,0 +1,46 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - core.argo-rollout.canary.controller.io
+  resources:
+  - customhttprouteconfigs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - core.argo-rollout.canary.controller.io
+  resources:
+  - customrolloutconfigs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - core.argo-rollout.canary.controller.io
+  resources:
+  - customrolloutconfigs/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - gateway.networking.k8s.io
+  resources:
+  - httproutes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch

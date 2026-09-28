@@ -1,0 +1,23 @@
+# More info: https://docs.docker.com/engine/reference/builder/#dockerignore-file
+# Ignore everything by default and re-include only needed files
+bin/
+/cover.out
+/chart/
+.git/
+.idea/
+.vscode/
+.github/
+.devcontainer
+/config/
+/hack/
+/test/
+.custom-gcl.yml
+.gitignore
+.golangci.yml
+*.md
+PROJECT
+Dockerfile
+!**/*.go
+**/*_test.go
+!go.mod
+!go.sum

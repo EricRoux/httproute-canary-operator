@@ -1,0 +1,22 @@
+apiVersion: core.argo-rollout.canary.controller.io/v1alpha1
+kind: CustomHttprouteConfig
+metadata:
+  labels:
+    app.kubernetes.io/name: kub-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: customhttprouteconfig-sample
+spec:
+  includeDefaultRoute: true
+  route:
+    headerMatches:
+      - name: header
+        applicationType: api
+        value: canary
+      - name: cookie
+        applicationType: ui
+        value: canary
+    backends:
+      - port: 80
+        pathPrefix: "/"
+      - port: 8080
+        pathPrefix: "/admin"
